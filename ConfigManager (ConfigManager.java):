@@ -1,0 +1,27 @@
+package com.yourplugin;
+
+public class ConfigManager {
+
+    private WorldQuest plugin;
+
+    public ConfigManager(WorldQuest plugin) {
+        this.plugin = plugin;
+    }
+
+    public void loadConfigurations() {
+        // Load config from plugin.yml or custom configuration files
+        plugin.saveDefaultConfig(); // Saves default config if not already present
+        plugin.reloadConfig(); // Reloads config from file
+        // Implement loading logic for your specific configurations
+    }
+
+    public void saveConfigurations() {
+        // Save any configuration changes back to file if necessary
+        plugin.saveConfig();
+    }
+
+    // Example method to access config values
+    public String getConfigValue(String key) {
+        return plugin.getConfig().getString(key);
+    }
+}
